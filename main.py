@@ -17,12 +17,10 @@ def populate_database_with_random_values(db):
         })
 
 if __name__ == '__main__':
-    # instantiate a mongo-db client
-    client = MongoClient('localhost:27017')
+    # # instantiate a mongo-db client
+    # client = MongoClient('localhost:27017')
 
-    # connect to the databse "test"
-    db = client.test
+    # # connect to the databse "test"
+    # db = client.test
     middlerware = SqlMongoTranslateMiddleware()
     print(middlerware.transate('Select * from Customer where Country = ‘Germany’'))
-    # for customer in db.customer.find({'country': 'United States of America'}):
-    #     print(customer)
