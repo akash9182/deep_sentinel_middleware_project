@@ -1,0 +1,2 @@
+class InvalidSqlQueryError(RuntimeError):
+	pass
