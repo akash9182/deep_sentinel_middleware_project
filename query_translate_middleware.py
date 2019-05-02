@@ -2,6 +2,8 @@
 This class represents a Middleware component that
 takes in a query for some query language and outputs 
 a query in some different query langauge
+
+(undefined language) -> Middleware -> (undefined language)
 '''
 class QueryTranslateMiddleware:
 	def translate(self, input_query):
