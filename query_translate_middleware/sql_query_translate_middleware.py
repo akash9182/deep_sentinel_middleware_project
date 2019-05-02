@@ -1,5 +1,5 @@
-from query_translate_middleware import QueryTranslateMiddleware
-from errors import InvalidSqlQueryError
+from .query_translate_middleware import QueryTranslateMiddleware
+from .errors import InvalidSqlQueryError
 import re
 
 '''

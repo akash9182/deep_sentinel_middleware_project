@@ -1,4 +1,3 @@
-
 '''
 This class represents a Middleware component that
 takes in a query for some query language and outputs 

@@ -1,6 +1,6 @@
 import unittest
-from sql_mongo_translate_middleware import SqlMongoTranslateMiddleware
-from errors import InvalidSqlQueryError
+from query_translate_middleware.sql_mongo_translate_middleware import SqlMongoTranslateMiddleware
+from query_translate_middleware.errors import InvalidSqlQueryError
 
 class TestSqlMongoTranslateMiddleware(unittest.TestCase):
     def setUp(self):
