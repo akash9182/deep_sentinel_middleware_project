@@ -23,4 +23,4 @@ if __name__ == '__main__':
     # # connect to the databse "test"
     # db = client.test
     middlerware = SqlMongoTranslateMiddleware()
-    print(middlerware.transate('Select * from Customer where Country = ‘Germany’'))
+    print(middlerware.transate('Select * from Customer where Country = "Germany"'))
