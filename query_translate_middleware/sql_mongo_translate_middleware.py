@@ -1,5 +1,8 @@
 from .sql_query_translate_middleware import SqlQueryTranslateMiddleware
 
+'''
+(sql query) -> middleware -> (mongo query)
+'''
 class SqlMongoTranslateMiddleware(SqlQueryTranslateMiddleware):
 	def translate_sql_query(self, query):
 		table, column, value = self.decode_sql_query(query)

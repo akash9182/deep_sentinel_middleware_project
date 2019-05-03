@@ -6,6 +6,8 @@ import re
 This class represents a middleware component which 
 translates an sql query to a query in some other
 query langauage
+
+(sql query) -> middlware -> (undefined language)
 '''
 class SqlQueryTranslateMiddleware(QueryTranslateMiddleware):
 	def transate(self, input_query):
@@ -17,6 +19,7 @@ class SqlQueryTranslateMiddleware(QueryTranslateMiddleware):
 	Decodes an sql query of the form 
 	SELECT * FROM A WHERE B = "C"
 	and returns A, B, C
+	customer_name , country, country_name
 	'''
 	def decode_sql_query(self, query):
 		query_lower = query.lower()
@@ -25,7 +28,7 @@ class SqlQueryTranslateMiddleware(QueryTranslateMiddleware):
 
 		try:
 			table = words[words_lower.index("from") + 1]
-		except ValueError as e:
+		except ValueError:
 			raise InvalidSqlQueryError
 			
 		column = words[words_lower.index("where") + 1]
@@ -44,7 +47,7 @@ class SqlQueryTranslateMiddleware(QueryTranslateMiddleware):
 		return table, column, value
 
 	def translate_sql_query(self, query):
-		raise NotImplementedError('method translate for class QueryTranslateMiddleware not implemented')
+		raise NotImplementedError('method translate_sql_query for class SqlQueryTranslateMiddleware not implemented')
 
 	def validate_sql_query(self, query):
 		l = query.lower().split()
@@ -52,4 +55,3 @@ class SqlQueryTranslateMiddleware(QueryTranslateMiddleware):
 			return l[0] == 'select' and l[2] == 'from' and l[4] == 'where' and l[6] == '='
 		except IndexError:
 			return False
-		

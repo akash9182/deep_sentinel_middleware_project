@@ -1,5 +1,5 @@
 NAMES = [
-    "Liam",
+"Liam",
 "Emma",
 "Noah",
 "Olivia",

@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 from constants import NAMES, COUNTRIES
 import random
-from query_translate_middleware.translate import translate_query
+from query_translate_middleware.translate import translate_query, get_middlware_instance
 
 
 def get_random_element_from_list(l):
@@ -23,5 +23,6 @@ if __name__ == '__main__':
 
     # # connect to the databse "test"
     # db = client.test
-    translated_query = translate_query('sql', 'mongo', 'Select * from Customer where Country = "Germany"')
+    middleware = get_middlware_instance('sql', 'mongo')
+    translated_query = middleware.transate('Select * from Customer where Country = "Germany"')
     print(translated_query)
